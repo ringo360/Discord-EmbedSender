@@ -5,8 +5,8 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-const ansired = '\x1b[31m'
-const ansigreen = '\x1b[32m'
+const ansired = '\x1b[31m';
+const ansigreen = '\x1b[32m';
 
 const questions = [
 	'1. Webhook URL',
@@ -32,7 +32,7 @@ function askQuestion(index) {
 	  }
 	  console.log('='.repeat(30));
 	  rl.close();
-
+	  sender.send(questions, answers);
 	} else {
 	  rl.question(`${questions[index]}` + " >> ", (answer) => {
 		if (index === 0) {
