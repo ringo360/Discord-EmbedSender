@@ -47,10 +47,16 @@ function askQuestion(index) {
 				askQuestion(1)
 			};
 		};
-		if (index === 2) {
-			if (!answer.startsWith("#")) {
-				answer = '#0x404eed'
+		if (index === 3) {
+			console.log("colorcheck")
+			if (answer === '') {
+				answer = 0x404eed
 			};
+			let CC = parseInt(answer, 16);
+			if (isNaN(CC)) {
+				console.error("無効なカラーコードを確認しました。")
+				console.log(`color: ${CC} / ${answer}`)
+			}
 		};
 		answers.push(answer);
 		askQuestion(index + 1);
