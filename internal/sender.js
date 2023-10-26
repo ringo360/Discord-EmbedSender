@@ -12,6 +12,25 @@ function send(questions, answers) {
 	const footer = answers[6]
 	const webhookClient = new WebhookClient({ url: webhookurl });
 	console.log("Sending Webhook...")
+	webhookClient.send({
+		avatarURL: `https://cdn.discordapp.com/attachments/1134772607615508530/1149685246363717652/hoshimatisuisei.gif`,
+		username: `EmbedSender Test`,
+		embeds: [{
+			title: title,
+			description: desc,
+			color: color,
+			fields: [{
+				name: "test",
+				value: "jsは女子小学生なのでtsはトランスジェンダーですね",
+			}],
+			footer: footer//,
+			/*
+			thumbnail: {
+				url: thumbnail
+		   }*/
+		}]
+	})
+	console.log("Success!")
 }
 
 module.exports = {

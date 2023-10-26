@@ -47,7 +47,7 @@ function askQuestion(index) {
 				askQuestion(1)
 			};
 		};
-		if (index === 0) {
+		if (index === 2) {
 			if (!answer.startsWith("#")) {
 				answer = '#0x404eed'
 			};
