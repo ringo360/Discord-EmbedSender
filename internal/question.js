@@ -10,12 +10,13 @@ const ansigreen = '\x1b[32m';
 
 const questions = [
 	'1. Webhook URL',
-	'2. Embed Title',
-	'3. Description (none if not entered.)',
-	'4. Color (If not entered, it will be #0x404eed.)',
-	'5. Author (none if not entered.)',
-	'6. Field (none if not entered.)',
-	'7. Footer (none if not entered.)',
+	'2. UserName',
+	'3. avatarURL(option)',
+	'4. Embed Title',
+	'5. Description (option)',
+	'6. Color (If not entered, it will be #0x404eed.)',
+	'7. Author (option)',
+	'8. Footer (option)',
 ];
 
 const answers = [];
