@@ -42,13 +42,13 @@ function askQuestion(index) {
 				askQuestion(0)
 			};
 		};
-		if (index === 1) {
+		if (index === 3) {
 			if (answer === '') {
 				console.log(`${ansired}Invalid input. Please try again.\x1b[37m`)
 				askQuestion(1)
 			};
 		};
-		if (index === 3) {
+		if (index === 5) {
 			console.log("colorcheck")
 			if (answer === '') {
 				answer = 0x404eed
