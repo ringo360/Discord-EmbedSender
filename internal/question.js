@@ -9,32 +9,49 @@ const ansired = '\x1b[31m';
 const ansigreen = '\x1b[32m';
 
 const questions = [
-	'1. Webhook URL',
-	'2. UserName',
-	'3. avatarURL(option)',
-	'4. Embed Title',
-	'5. Description (option)',
-	'6. Color (If not entered, it will be #0x404eed.)',
-	'7. Author (option)',
-	'8. Footer (option)',
+	'Webhook URL', //0
+	'UserName(option)', //1
+	'avatarURL(option)', //2
+	'Embed Title', //3
+	'Description (option)', //4
+	'Color (If not entered, it will be #0x404eed.)', //5
+	'Author (option)', //6
+	'Footer (option)', //7
 ];
 
 const answers = [];
+const fields = [];
+
+function showResult() {
+	console.log('='.repeat(30));
+	for (let i = 0; i < questions.length; i++) {
+		if (answers[i] === '') {
+		  answers[i] = 'Not entered'
+		}
+		console.log(`${questions[i]} => ${answers[i]}`);
+	console.log('='.repeat(30));
+	}
+}
+
+function fields() {
+	console.log("called!");
+	rl.question('Create Fields? [y/n]' + " >> ", (answer) => {
+		if (answer === 'y') {
+			//TODO: やれ
+		};
+		if (answer === 'n') {
+			showResult();
+		};
+}),
 
 function askQuestion(index) {
 	if (index === questions.length) {
 	  // 5つの質問が終了したら、回答を出力してプログラムを終了
-	  console.log('='.repeat(30));
-	  for (let i = 0; i < questions.length; i++) {
-		if (answers[i] === '') {
-			answers[i] = 'Not entered'
-		}
-		console.log(`${questions[i]} => ${answers[i]}`);
+		fields();
 	  }
-	  console.log('='.repeat(30));
 	  rl.close();
 	  sender.send(questions, answers);
-	} else {
+	}
 	  rl.question(`${questions[index]}` + " >> ", (answer) => {
 		if (index === 0) {
 			if (!answer.startsWith("https://discord.com/api/webhooks/")) {
@@ -62,7 +79,6 @@ function askQuestion(index) {
 		answers.push(answer);
 		askQuestion(index + 1);
 	  });
-	}
 }
 
 module.exports = {
