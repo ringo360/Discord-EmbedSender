@@ -10,7 +10,7 @@ function send(questions, answers) {
 	const author = answers[4]
 	const field = answers[5]
 	const footer = answers[6]
-	let webhookClient = new WebhookClient({ url: webhookurl });
+	const webhookClient = new WebhookClient({ url: webhookurl });
 	console.log("Sending Webhook...")
 }
 
