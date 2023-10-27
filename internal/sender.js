@@ -24,7 +24,7 @@ function send(questions, answers) {
 			color: 0x404eed,
 			fields: [{
 				name: "test",
-				value: "jsは女子小学生なのでtsはトランスジェンダーですね",
+				value: "jsは女子小学生なのでtsはトランスセクシャルですね",
 			}],
 			footer: footer//,
 			/*
