@@ -33,21 +33,39 @@ function showResult() {
 	}
 }
 
-function fields() {
-	console.log("called!");
+function qfields() {
+	console.log("qfields - called!");
 	rl.question('Create Fields? [y/n]' + " >> ", (answer) => {
 		if (answer === 'y') {
-			//TODO: やれ
+			makefields(0)
 		};
 		if (answer === 'n') {
 			showResult();
 		};
-}),
+	});
+}
+
+const fieldq = [
+	'Field Name', //0
+	'Field Text', //1
+	'Inline? [true/false] (option)' //2
+];
+
+function makefields(index) {
+	console.log("makefields - called!")
+	rl.question(`${fieldq[index]}` + " >> ", (answer) => {
+		if (index === 0) {
+			if (answer === '') {
+				console.error('Invalid Input. Please try again.')
+			}
+		}
+	})
+}
 
 function askQuestion(index) {
 	if (index === questions.length) {
 	  // 5つの質問が終了したら、回答を出力してプログラムを終了
-		fields();
+		qfields();
 	  }
 	  rl.close();
 	  sender.send(questions, answers);
@@ -78,8 +96,8 @@ function askQuestion(index) {
 		};
 		answers.push(answer);
 		askQuestion(index + 1);
-	  });
-}
+ });
+
 
 module.exports = {
 	askQuestion,
