@@ -60,16 +60,15 @@ function makefields(index) {
 			}
 		}
 	})
-}
+};
 
 function askQuestion(index) {
 	if (index === questions.length) {
 	  // 5つの質問が終了したら、回答を出力してプログラムを終了
 		qfields();
-	  }
-	  rl.close();
+		rl.close();
 	  sender.send(questions, answers);
-	}
+	  }
 	  rl.question(`${questions[index]}` + " >> ", (answer) => {
 		if (index === 0) {
 			if (!answer.startsWith("https://discord.com/api/webhooks/")) {
@@ -80,7 +79,7 @@ function askQuestion(index) {
 		if (index === 3) {
 			if (answer === '') {
 				console.log(`${ansired}Invalid input. Please try again.\x1b[37m`)
-				askQuestion(1)
+				askQuestion(3)
 			};
 		};
 		if (index === 5) {
@@ -96,7 +95,8 @@ function askQuestion(index) {
 		};
 		answers.push(answer);
 		askQuestion(index + 1);
- });
+	});
+}
 
 
 module.exports = {
